@@ -1,0 +1,38 @@
+body { 
+    background: #0a0a0c; /* Deep space black */
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+/* Glowing Neon Sidebar */
+nav { 
+    width: 220px; 
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    border-right: 2px solid #833ab4; /* Purple neon border */
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 5px 0px 15px rgba(131, 58, 180, 0.3);
+}
+
+/* Glossy Cards with Gold/Purple Accents */
+.card { 
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 215, 0, 0.3); /* Subtle Gold border */
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(131, 58, 180, 0.6); /* Purple Glow */
+    border: 1px solid #ffd700; /* Bright Gold on hover */
+}
+
+h1 {
+    color: #ffd700; /* Gold Header */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
