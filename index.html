@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 0; display: flex; }
+        nav { width: 200px; background: #2c3e50; color: white; height: 100vh; padding: 20px; }
+        main { flex-grow: 1; padding: 40px; }
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .status-badge { background: #e67e22; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>OfficeHub</h2>
+        <p>Dashboard</p>
+        <p>Team Tasks</p>
+        <p>Documents</p>
+    </nav>
+    <main>
+        <h1>Daily Overview</h1>
+        <div class="card-container">
+            <div class="card">
+                <h3>Project Alpha</h3>
+                <p>Deadline: Friday</p>
+                <span class="status-badge">In Progress</span>
+            </div>
+            <div class="card">
+                <h3>Meeting Prep</h3>
+                <p>Review Q2 stats for 3 PM call.</p>
+                <span class="status-badge" style="background:#27ae60;">High Priority</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
