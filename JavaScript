@@ -1,0 +1,10 @@
+function addTask(taskName) {
+  const container = document.querySelector('.card-container');
+  const newCard = `
+    <div class="card">
+      <h3>${taskName}</h3>
+      <p>Added just now</p>
+      <span class="status-badge">New</span>
+    </div>`;
+  container.innerHTML += newCard;
+}
