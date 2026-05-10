@@ -1,36 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Command Center | Office Hub</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 0; display: flex; }
-        nav { width: 200px; background: #2c3e50; color: white; height: 100vh; padding: 20px; }
-        main { flex-grow: 1; padding: 40px; }
-        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .status-badge { background: #e67e22; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        :root {
+            --bg-dark: #08080c;
+            --panel-bg: rgba(26, 26, 46, 0.8);
+            --neon-purple: #9d50bb;
+            --neon-gold: #ffd700;
+            --text-main: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Side Navigation - Glowing Purple Border */
+        nav {
+            width: 240px;
+            background: linear-gradient(180deg, #12121e 0%, #0a0a12 100%);
+            border-right: 2px solid var(--neon-purple);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 10px 0 20px rgba(157, 80, 187, 0.2);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--neon-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(157, 80, 187, 0.1);
+            color: white;
+            box-shadow: inset 0 0 10px rgba(157, 80, 187, 0.3);
+        }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, #1a1a2e, #08080c);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        #clock {
+            font-size: 24px;
+            color: var(--neon-gold);
+            font-weight: 300;
+            text-shadow: 0 0 5px var(--neon-gold);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(to right, #fff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Dashboard Cards - Glossy Glass Style */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-gold), transparent);
+            opacity: 0.5;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 10px 30px rgba(157, 80, 187, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--neon-gold);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: rgba(157, 80, 187, 0.2);
+            border: 1px solid var(--neon-purple);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
+
     <nav>
-        <h2>OfficeHub</h2>
-        <p>Dashboard</p>
-        <p>Team Tasks</p>
-        <p>Documents</p>
+        <div class="logo">AI Hub</div>
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">📊 Project Tasks</a>
+        <a href="#">📂 Document Lab</a>
+        <a href="#">👥 Team Directory</a>
+        <a href="#">⚙️ Settings</a>
     </nav>
+
     <main>
-        <h1>Daily Overview</h1>
-        <div class="card-container">
+        <header>
+            <h1>Office Overview</h1>
+            <div id="clock">00:00:00</div>
+        </header>
+
+        <div class="grid">
             <div class="card">
-                <h3>Project Alpha</h3>
-                <p>Deadline: Friday</p>
-                <span class="status-badge">In Progress</span>
+                <h3>Current Project</h3>
+                <p>Developing automated office framework v1.0</p>
+                <span class="badge">In Progress</span>
             </div>
+
             <div class="card">
-                <h3>Meeting Prep</h3>
-                <p>Review Q2 stats for 3 PM call.</p>
-                <span class="status-badge" style="background:#27ae60;">High Priority</span>
+                <h3>Critical Alert</h3>
+                <p>Review system security protocols and GitHub permissions.</p>
+                <span class="badge" style="border-color: #ff4d4d; color: #ff4d4d;">Urgent</span>
+            </div>
+
+            <div class="card">
+                <h3>Quick Notes</h3>
+                <p>Click here to draft a new technical memo or status update.</p>
+                <span class="badge" style="border-color: var(--neon-gold); color: var(--neon-gold);">Active</span>
             </div>
         </div>
     </main>
+
+    <script>
+        // Real-time Digital Clock Logic
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').innerText = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 </html>
